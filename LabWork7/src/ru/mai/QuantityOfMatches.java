@@ -19,6 +19,7 @@ import java.util.TreeSet;
  * Ввод
  * <p>
  * 1 2 3 2 1
+ * <p>
  * 2 3 4 3 2
  * <p>
  * Вывод
@@ -29,16 +30,27 @@ import java.util.TreeSet;
 public class QuantityOfMatches {
 
     static Scanner in = new Scanner(System.in);
+    static final String ERROR_MESSAGE = "ERROR";
 
     public static void main(String[] args) {
+        TreeSet<Integer> firstRow;
+        TreeSet<Integer> secondRow;
+        try {
+            firstRow = fillRow();
+            secondRow = fillRow();
+        } catch (Exception e) {
+            return;
+        }
 
-        TreeSet<Integer> firstRow = fillRow();
-        TreeSet<Integer> secondRow = fillRow();
-
-        for (Integer iter : firstRow) {
-            if (secondRow.contains(iter)) {
-                System.out.print(iter + " ");
+        try {
+            for (Integer iter : firstRow) {
+                if (secondRow.contains(iter)) {
+                    System.out.print(iter + " ");
+                }
             }
+        } catch (NullPointerException e) {
+            System.out.print(ERROR_MESSAGE);
+            return;
         }
     }
 
@@ -47,7 +59,12 @@ public class QuantityOfMatches {
         String[] buff = inputStr.split(" ");
         TreeSet<Integer> res = new TreeSet<Integer>();
         for (String str : buff) {
-            res.add(Integer.parseInt(str));
+            try {
+                res.add(Integer.parseInt(str));
+            } catch (NumberFormatException e) {
+                System.out.print(ERROR_MESSAGE);
+                throw e;
+            }
         }
         return res;
     }
