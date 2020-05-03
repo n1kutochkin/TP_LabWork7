@@ -58,9 +58,9 @@ public class PhoneNumbers {
 
     static class PhoneNumber {
 
-        private final int CODE = 2;
-        private final int CODE_OF_MOSCOW = 495;
-        private final int NUMBER = 4;
+        private static final int CODE = 2;
+        private static final int CODE_OF_MOSCOW = 495;
+        private static final int NUMBER = 4;
         private static Pattern pattern = Pattern.compile("(\\+7|8)?\\-?\\(?((\\d\\-?){3})?\\)?((\\d\\-?){7})");
         private static Matcher matcher;
 
