@@ -18,24 +18,30 @@ import java.util.Scanner;
 public class QuantityOfDiffNumbers {
 
     static Scanner in = new Scanner(System.in);
+    static final String ERROR_MESSAGE = "ERROR";
 
     public static void main(String[] args) {
+
         HashSet<Integer> mainSet = new HashSet<>();
         HashSet<Integer> buffSet = new HashSet<>();
 
-        while (in.hasNextInt()) {
-            int buff = in.nextInt();
+        try {
+            while (in.hasNextInt()) {
+                int buff = in.nextInt();
 
-            if (mainSet.contains(buff)) {
-                buffSet.add(buff);
-            } else {
-                mainSet.add(buff);
-            }
+                if (mainSet.contains(buff)) {
+                    buffSet.add(buff);
+                } else {
+                    mainSet.add(buff);
+                }
 
-            //выход для консольного ввода
-            if (in.hasNext("~")) {
-                break;
+                //выход для консольного ввода
+                if (in.hasNext("~")) {
+                    break;
+                }
             }
+        } catch (Exception e) {
+            System.out.println(ERROR_MESSAGE);
         }
 
         mainSet.removeAll(buffSet);
