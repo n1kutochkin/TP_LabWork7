@@ -61,6 +61,7 @@ import java.util.Comparator;
 
 public class StateDumaElections {
 
+    static final int OFFSET = 1;
     static Scanner in = null;
     static final String ERROR_MESSAGE = "ERROR";
 
@@ -147,15 +148,18 @@ public class StateDumaElections {
 
                 Party buffParty = new Party();
 
+                String inputStr = in.nextLine();
                 StringBuilder buffStr = new StringBuilder();
 
-                while (!in.hasNextInt()) {
-                    buffStr.append(in.next() + " ");
+                String[] mas = inputStr.split("\\s");
+
+                for (int i = 0; i < mas.length - OFFSET; i++) {
+                    buffStr.append(mas[i] + " ");
                 }
 
                 buffParty.setNameOfParty(String.valueOf(buffStr));
 
-                buffParty.setQuantityOfMembers(in.nextInt());
+                buffParty.setQuantityOfMembers(Integer.parseInt(mas[mas.length - OFFSET]));
 
                 parties.add(buffParty);
             }
