@@ -92,14 +92,6 @@ public class StateDumaElections {
             firstSelectablePrivate = (double) sum / QUANTITY_OF_PLACES;
         }
 
-        public static boolean isEnoughParties() {
-            if (sum > 450) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
         public void setNameOfParty(String nameOfParty) {
             this.nameOfParty = nameOfParty;
         }
@@ -207,12 +199,7 @@ public class StateDumaElections {
         for (Party party : listOfParties) {
             Party.finalSum += party.getCalculatedNumberOfPlaces();
         }
-
-        if (Party.finalSum < Party.QUANTITY_OF_PLACES) {
-            return true;
-        } else {
-            return false;
-        }
+        return Party.finalSum < Party.QUANTITY_OF_PLACES ? true : false;
     }
 
     public static ArrayList<Party> generateRequiredList(ArrayList<Party> list) {
