@@ -203,7 +203,8 @@ public class StateDumaElections {
     }
 
     public static ArrayList<Party> generateRequiredList(ArrayList<Party> list) {
-        Collections.sort(list, new PartyComparator());
-        return list;
+        ArrayList<Party> buffList = new ArrayList<>(list);
+        Collections.sort(buffList, new PartyComparator());
+        return buffList;
     }
 }
