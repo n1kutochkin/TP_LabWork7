@@ -2,6 +2,7 @@ package ru.mai;
 
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 /**
  * Дан список чисел, который может содержать до 100000 чисел. Определите, сколько в нем встречается различных чисел.
@@ -22,8 +23,9 @@ public class QuantityOfDiffNumbers {
 
     public static void main(String[] args) {
 
-        HashSet<Integer> mainSet = new HashSet<>();
+        TreeSet<Integer> mainSet = new TreeSet<>();
         HashSet<Integer> buffSet = new HashSet<>();
+
 
         try {
             while (in.hasNextInt()) {
@@ -46,6 +48,8 @@ public class QuantityOfDiffNumbers {
 
         mainSet.removeAll(buffSet);
 
-        System.out.print(mainSet.size());
+        for (Integer number : mainSet) {
+            System.out.print(number + " ");
+        }
     }
 }
