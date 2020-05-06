@@ -41,12 +41,12 @@ public class Transfers {
 
     public static void main(String[] args) {
         try {
-            HashSet<Byte> FirstBusStops = makeSetOfStops(in.nextByte(), in.nextByte());
-            HashSet<Byte> SecondBusStops = makeSetOfStops(in.nextByte(), in.nextByte());
+            HashSet<Byte> firstBusStops = makeSetOfStops(in.nextByte(), in.nextByte());
+            HashSet<Byte> secondBusStops = makeSetOfStops(in.nextByte(), in.nextByte());
 
-            FirstBusStops.retainAll(SecondBusStops);
+            firstBusStops.retainAll(secondBusStops);
 
-            HashSet<Byte> commonStops = FirstBusStops;
+            HashSet<Byte> commonStops = firstBusStops;
 
             System.out.println(commonStops.size());
         } catch (Exception e) {
