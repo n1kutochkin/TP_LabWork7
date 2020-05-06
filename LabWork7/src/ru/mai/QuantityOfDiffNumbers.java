@@ -1,6 +1,5 @@
 package ru.mai;
 
-import java.util.HashSet;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -24,18 +23,11 @@ public class QuantityOfDiffNumbers {
     public static void main(String[] args) {
 
         TreeSet<Integer> mainSet = new TreeSet<>();
-        HashSet<Integer> buffSet = new HashSet<>();
-
 
         try {
             while (in.hasNextInt()) {
                 int buff = in.nextInt();
-
-                if (mainSet.contains(buff)) {
-                    buffSet.add(buff);
-                } else {
-                    mainSet.add(buff);
-                }
+                mainSet.add(buff);
 
                 //выход для консольного ввода
                 if (in.hasNext("~")) {
@@ -46,10 +38,6 @@ public class QuantityOfDiffNumbers {
             System.out.println(ERROR_MESSAGE);
         }
 
-        mainSet.removeAll(buffSet);
-
-        for (Integer number : mainSet) {
-            System.out.print(number + " ");
-        }
+        System.out.println(mainSet.size());
     }
 }
