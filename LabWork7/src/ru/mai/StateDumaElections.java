@@ -2,8 +2,11 @@ package ru.mai;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Comparator;
 /**
  * Статья 83 закона “О выборах депутатов Государственной Думы Федерального Собрания Российской Федерации”
  * в предыдущей редакции определяет следующий алгоритм пропорционального распределения мест в парламенте.
