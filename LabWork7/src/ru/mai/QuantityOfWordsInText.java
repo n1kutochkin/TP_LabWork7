@@ -34,6 +34,9 @@ public class QuantityOfWordsInText {
         } catch (FileNotFoundException e) {
             System.out.println(ERROR_MESSAGE);
             return;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(ERROR_MESSAGE);
+            return;
         }
 
         HashSet<String> setOfWords = new HashSet<>();
