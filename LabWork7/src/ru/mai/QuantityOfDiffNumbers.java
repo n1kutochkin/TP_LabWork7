@@ -39,8 +39,6 @@ public class QuantityOfDiffNumbers {
             System.out.println(ERROR_MESSAGE);
         }
 
-        for (Integer number : mainSet) {
-            System.out.print(number + " ");
-        }
+        System.out.println(mainSet.size());
     }
 }
