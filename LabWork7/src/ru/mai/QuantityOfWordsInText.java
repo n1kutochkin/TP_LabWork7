@@ -1,7 +1,5 @@
 package ru.mai;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -30,10 +28,7 @@ public class QuantityOfWordsInText {
     public static void main(String[] args) {
 
         try {
-            in = new Scanner(new File(args[INPUT_FILE].replace("<", "").replace(">", "")));
-        } catch (FileNotFoundException e) {
-            System.out.println(ERROR_MESSAGE);
-            return;
+            in = new Scanner(System.in);
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println(ERROR_MESSAGE);
             return;
