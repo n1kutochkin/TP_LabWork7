@@ -45,6 +45,6 @@ public class QuantityOfWordsInText {
             setOfWords.add(in.next());
         }
 
-        System.out.println(setOfWords.size());
+        System.out.print(setOfWords.size());
     }
 }
