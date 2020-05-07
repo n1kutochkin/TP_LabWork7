@@ -154,31 +154,34 @@ public class BankingApp {
 
     public static void main(String[] args) {
         BankingSystem bank = new BankingSystem();
+        try {
+            while (in.hasNextLine() && !in.hasNext("~")) {
+                String incomeStr = in.nextLine();
+                String[] mas = incomeStr.split("\\s");
 
-        while (in.hasNextLine() && !in.hasNext("~")) {
-            String incomeStr = in.nextLine();
-            String[] mas = incomeStr.split("\\s");
-
-            switch (mas[OPERATION]) {
-                case "DEPOSIT":
-                    bank.deposit(mas[DWOperations.NAME.ordinal()], Integer.parseInt(mas[DWOperations.SUM.ordinal()]));
-                    break;
-                case "WITHDRAW":
-                    bank.withdraw(mas[DWOperations.NAME.ordinal()], Integer.parseInt(mas[DWOperations.SUM.ordinal()]));
-                    break;
-                case "BALANCE":
-                    bank.balance(mas[BOperation.NAME.ordinal()]);
-                    break;
-                case "TRANSFER":
-                    bank.transfer(mas[TOperation.FROM.ordinal()], mas[TOperation.TO.ordinal()], Integer.parseInt(mas[TOperation.SUM.ordinal()]));
-                    break;
-                case "INCOME":
-                    bank.income(Integer.parseInt(mas[IOperation.PERCENT.ordinal()]));
-                    break;
-                default:
-                    System.out.println(INVALID_DATA);
-                    return;
+                switch (mas[OPERATION]) {
+                    case "DEPOSIT":
+                        bank.deposit(mas[DWOperations.NAME.ordinal()], Integer.parseInt(mas[DWOperations.SUM.ordinal()]));
+                        break;
+                    case "WITHDRAW":
+                        bank.withdraw(mas[DWOperations.NAME.ordinal()], Integer.parseInt(mas[DWOperations.SUM.ordinal()]));
+                        break;
+                    case "BALANCE":
+                        bank.balance(mas[BOperation.NAME.ordinal()]);
+                        break;
+                    case "TRANSFER":
+                        bank.transfer(mas[TOperation.FROM.ordinal()], mas[TOperation.TO.ordinal()], Integer.parseInt(mas[TOperation.SUM.ordinal()]));
+                        break;
+                    case "INCOME":
+                        bank.income(Integer.parseInt(mas[IOperation.PERCENT.ordinal()]));
+                        break;
+                    default:
+                        System.out.println(INVALID_DATA);
+                        return;
+                }
             }
+        } catch (Exception e) {
+            System.out.println(INVALID_DATA);
         }
     }
 }
